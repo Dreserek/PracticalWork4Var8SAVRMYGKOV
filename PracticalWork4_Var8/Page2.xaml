@@ -1,0 +1,52 @@
+﻿<Page x:Class="PracticalWork4_Var8.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Page2">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Формула -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" 
+                   Text="j = sin(5f(x)+3m|f(x)|) при -1 &lt; m &lt; x; cos(3f(x)+5m|f(x)|) при x &gt; m; (f(x)+m)² при x = m"
+                   FontSize="14" FontWeight="Bold" Margin="5" TextWrapping="Wrap"/>
+
+        <!-- X -->
+        <Label Grid.Row="1" Grid.Column="0" Content="x:" Margin="5" ToolTip="Введите число x"/>
+        <TextBox x:Name="txtX2" Grid.Row="1" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"/>
+
+        <!-- M -->
+        <Label Grid.Row="2" Grid.Column="0" Content="m:" Margin="5" ToolTip="Введите число m"/>
+        <TextBox x:Name="txtM2" Grid.Row="2" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"/>
+
+        <!-- Выбор f(x) -->
+        <Label Grid.Row="3" Grid.Column="0" Content="f(x):" Margin="5" ToolTip="Выберите функцию"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="5">
+            <RadioButton x:Name="rbSh" GroupName="Fx" Content="sh(x)" IsChecked="True" Margin="5" ToolTip="Гиперболический синус"/>
+            <RadioButton x:Name="rbX2" GroupName="Fx" Content="x²" Margin="5" ToolTip="Квадрат x"/>
+            <RadioButton x:Name="rbExp" GroupName="Fx" Content="e^x" Margin="5" ToolTip="Экспонента"/>
+        </StackPanel>
+
+        <!-- Результат -->
+        <Label Grid.Row="4" Grid.Column="0" Content="Результат j:" Margin="5"/>
+        <TextBox x:Name="txtResult2" Grid.Row="4" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"
+                 IsReadOnly="True" Background="#F0F0F0"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Вычислить" Click="Calculate2_Click" Width="100" Margin="5"/>
+            <Button Content="Очистить" Click="Clear2_Click" Width="100" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

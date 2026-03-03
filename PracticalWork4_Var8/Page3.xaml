@@ -1,0 +1,61 @@
+﻿<Page x:Class="PracticalWork4_Var8.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      Title="Page3">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Формула -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="y = 9·x⁴ + sin(57.2 + x)" 
+                   FontSize="16" FontWeight="Bold" Margin="5"/>
+
+        <!-- x0 -->
+        <Label Grid.Row="1" Grid.Column="0" Content="x0:" Margin="5" ToolTip="Начало отрезка"/>
+        <TextBox x:Name="txtX0" Grid.Row="1" Grid.Column="1" Margin="5" Width="150" HorizontalAlignment="Left"/>
+
+        <!-- xk -->
+        <Label Grid.Row="2" Grid.Column="0" Content="xk:" Margin="5" ToolTip="Конец отрезка"/>
+        <TextBox x:Name="txtXk" Grid.Row="2" Grid.Column="1" Margin="5" Width="150" HorizontalAlignment="Left"/>
+
+        <!-- dx -->
+        <Label Grid.Row="3" Grid.Column="0" Content="dx:" Margin="5" ToolTip="Шаг (положительный)"/>
+        <TextBox x:Name="txtDx" Grid.Row="3" Grid.Column="1" Margin="5" Width="150" HorizontalAlignment="Left"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Вычислить" Click="Calculate3_Click" Width="100" Margin="5"/>
+            <Button Content="Очистить" Click="Clear3_Click" Width="100" Margin="5"/>
+        </StackPanel>
+
+        <!-- Многострочный вывод -->
+        <TextBox x:Name="txtResult3" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
+                 Margin="5" Height="150" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"
+                 IsReadOnly="True" Background="#F0F0F0" TextWrapping="Wrap"
+                 ToolTip="Результаты табуляции x и y"/>
+
+        <!-- Область для графика LiveCharts -->
+        <lvc:CartesianChart x:Name="ChartFunction" Grid.Row="6" Grid.ColumnSpan="2" 
+                            Margin="5" Height="250" LegendLocation="Top" 
+                            ToolTip="График функции">
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Title="y = 9·x⁴ + sin(57.2 + x)" 
+                                Values="{Binding Points}" 
+                                PointGeometrySize="4" 
+                                StrokeThickness="2"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+    </Grid>
+</Page>

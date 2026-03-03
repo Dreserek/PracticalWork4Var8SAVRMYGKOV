@@ -1,0 +1,49 @@
+﻿<Page x:Class="PracticalWork4_Var8.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Page1">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Формула -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="φ = e^|x-y| * |x-y|^(x+y) / (arctg(x)+arctg(z)) + ∛(x² + ln² y)" 
+                   FontSize="16" FontWeight="Bold" Margin="5" HorizontalAlignment="Center"/>
+
+        <!-- X -->
+        <Label Grid.Row="1" Grid.Column="0" Content="x:" Margin="5" ToolTip="Введите число x"/>
+        <TextBox x:Name="txtX1" Grid.Row="1" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"
+                 ToolTip="Число x (любое)"/>
+
+        <!-- Y -->
+        <Label Grid.Row="2" Grid.Column="0" Content="y:" Margin="5" ToolTip="Введите число y (y > 0 для ln)"/>
+        <TextBox x:Name="txtY1" Grid.Row="2" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"
+                 ToolTip="y > 0, иначе логарифм не определён"/>
+
+        <!-- Z -->
+        <Label Grid.Row="3" Grid.Column="0" Content="z:" Margin="5" ToolTip="Введите число z"/>
+        <TextBox x:Name="txtZ1" Grid.Row="3" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"
+                 ToolTip="Число z (любое)"/>
+
+        <!-- Результат -->
+        <Label Grid.Row="4" Grid.Column="0" Content="Результат φ:" Margin="5"/>
+        <TextBox x:Name="txtResult1" Grid.Row="4" Grid.Column="1" Margin="5" Width="200" HorizontalAlignment="Left"
+                 IsReadOnly="True" Background="#F0F0F0" ToolTip="Результат вычислений (только чтение)"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Вычислить" Click="Calculate1_Click" Width="100" Margin="5" ToolTip="Рассчитать значение φ"/>
+            <Button Content="Очистить" Click="Clear1_Click" Width="100" Margin="5" ToolTip="Очистить все поля"/>
+        </StackPanel>
+    </Grid>
+</Page>
